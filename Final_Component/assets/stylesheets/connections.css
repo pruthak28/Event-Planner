@@ -1,0 +1,27 @@
+.event{
+    width:500px;
+    height:200px;
+    background-color:#333333;
+    padding:20px;
+    border-radius:20px;
+    -webkit-box-shadow: 3px 3px 5px 6px #1a1a1a;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    3px 3px 5px 6px #1a1a1a;  /* Firefox 3.5 - 3.6 */
+    box-shadow:         3px 3px 5px 6px #1a1a1a;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+    margin-bottom:30px;
+    margin-left:100px;
+}
+
+.eventImg{
+    width:150px;
+    height:150px;
+    margin-left:20px;
+}
+
+.event a{
+    cursor:pointer;
+}
+
+.indexContent{
+  height: 620px;
+  overflow: auto !important;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Us</title>
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/index.css">
+    <link rel="stylesheet" href="/assets/stylesheets/about.css">
+    <script type="text/javascript" src="/assets/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/about.js"></script>
+    <script type="text/javascript" src="/assets/scripts/commonHeader.js"></script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-md-12" >
+                <% include partials/header.ejs %>
+                <% include partials/navigation.ejs %>
+            </div>
+        </div>
+        <div class="row indexContent">
+            <div class="col-sm-12">
+                <br><br>
+                <h3 class="eventHeader">About Us</h3>
+                <br>
+                <div id="accordion">
+                  <h3 class="accHeader">Our Transformation</h3>
+                  <div class="accText">
+                    <p>
+                    <b>What's Happening!!</b> is our two-year plan to transform and turn around our company. It's the
+                    combination of mission that unites us, the vision of what we aspire to be and the values
+                    that guide how we work.
+                    </p>
+                    <h6><b>Our Mission</b></h6>
+                    <p>We help people get better every day. We believe connectivity is the most powerful
+                     enabler of progress in the world today. Connectivity helps bring families and friends more
+                      closely together, children to get a better education and businesses to be more productive.</p>
+                    <h6><b>Our Vision</b></h6>
+                    <p>1. Users recommend <b>What's Happening!!</b> as the best mobile connection platform in America.<br/>
+                    2. <b>What's Happening!!</b> has defied the odds and executed one of America's most iconic turnarounds.</p>
+
+                    <h6><b>Our Values</b></h6>
+                    <p>Believe&nbsp;&nbsp;&nbsp;Obsess&nbsp;&nbsp;&nbsp;Excel&nbsp;&nbsp;&nbsp;Connect&nbsp;&nbsp;&nbsp;Win
+                    &nbsp;&nbsp;&nbsp;Focus&nbsp;&nbsp;&nbsp;Respect</p>
+                  </div>
+                  <h3 class="accHeader">News</h3>
+                  <div class="accText">
+                    <ul>
+                        <li>New update of <b>What's Happening!!</b> launching soon.</li>
+                        <li>Visitors count exceeds 6 Million.</li>
+                        <li><b>What's Happening!!</b> considered as the best event publicizing app in Charlotter, NC.</li>
+                    </ul>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+        <% include partials/footer.ejs %>
+        <script>changeHeader("<%- SessionExists %>","<%- user %>");</script>
+    </body>
+</html>

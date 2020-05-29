@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>New Connection</title>
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/index.css">
+    <link rel="stylesheet" href="/assets/stylesheets/newConnection.css">
+    <script type="text/javascript" src="/assets/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/commonHeader.js"></script>
+    <script type="text/javascript" src="/assets/scripts/newConnection.js"></script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-md-12" >
+                <% include partials/header.ejs %>
+                <%- include('partials/navigation.ejs',{"user":"Andy"}) %>
+            </div>
+        </div>
+        <div class="row indexContent newConnRow">
+            <div class="col-sm-12">
+              <br><br>
+              <form id="newConn" method="POST" action="<%= ((Object.keys(connectionInfo).length > 0)?'/connections?action=updateNewConnection':'/connections?action=addNewConn')%>">
+                <table>
+                    <tr>
+                        <td><b>Topic</b></td>
+                        <td>
+                          <% if(Object.keys(connectionInfo).length > 0){ %>
+                            <input type="hidden" name="connectID" value="<%= connectionInfo.connId %>">
+                          <% } %>
+                          <select name="topic" id="topic" class="txtInput" placeholder="Topic">
+                            <option>Happy Good Time : Recreational</option>
+                            <option>TechnoBuzz : Technical Know-how</option>
+                          </select>
+                        </td>
+                        <%if(errors.topic){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.topic.msg %></td>
+                        <% }%>
+                    </tr>
+                    <tr>
+                        <td><b>Name</b></td>
+                        <td><input type="text" name="name" id="name" class="txtInput" placeholder="Name" value="<%= ((Object.keys(connectionInfo).length > 0)?connectionInfo.connName:"")%>"></td>
+                        <%if(errors.name){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.name.msg %></td>
+                        <% }%>
+                    </tr>
+                    <tr>
+                        <td><b>Details</b></td>
+                        <td><textarea rows="4" cols="60" name="Description" class="txtInput" id="details" placeholder="Description"  value="<%= ((Object.keys(connectionInfo).length > 0)?connectionInfo.connDetails:"")%>"></textarea></td>
+                        <%if(errors.Description){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.Description.msg %></td>
+                        <% }%>
+                    </tr>
+                    <tr>
+                        <td><b>Where</b></td>
+                        <td><input type="text" name="location" id="location" class="txtInput" placeholder="Location"  value="<%= ((Object.keys(connectionInfo).length > 0)?connectionInfo.location:"")%>"></td>
+                        <%if(errors.location){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.location.msg %></td>
+                        <% }%>
+                    </tr>
+                    <tr>
+                        <td><b>When</b></td>
+                        <td><input type="date" name="date" id="date" class="txtInput" ></td>
+                        <%if(errors.date){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.date.msg %></td>
+                        <% }%>
+                    </tr>
+                    <tr>
+                      <td><b>From</b></td>
+                      <td><input type="text" name="from" id="from" class="txtInput fromTxt" placeholder="From">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <select name="fromSuffix" id="fromSuffix" class="fromSuffix">
+                          <option>am</option>
+                          <option>pm</option>
+                        </select>
+                      </td>
+                      <%if(errors.from){%>
+                        <td class="error">&nbsp;&nbsp;<%= errors.from.msg %></td>
+                      <% }%>
+                      <%if(errors.fromSuffix){%>
+                        <td class="error">&nbsp;&nbsp;<%= errors.fromSuffix.msg %></td>
+                      <% }%>
+                    </tr>
+                    <tr>
+                      <td><b>To</b></td>
+                      <td><input type="text" name="to" id="to" class="txtInput toTxt" placeholder="To">&nbsp;&nbsp;&nbsp;&nbsp;
+                        <select name="toSuffix" id="toSuffix" class="toSuffix">
+                          <option>am</option>
+                          <option>pm</option>
+                        </select>
+                      </td>
+                      <%if(errors.to){%>
+                        <td class="error">&nbsp;&nbsp;<%= errors.to.msg %></td>
+                      <% }%>
+                      <%if(errors.toSuffix){%>
+                        <td class="error">&nbsp;&nbsp;<%= errors.toSuffix.msg %></td>
+                      <% }%>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><br><input type="submit" name="saveConnections" value="<%= ((Object.keys(connectionInfo).length > 0)?'Update Connection':'Create Connection')%>" class="createConBtn"></td>
+                    </tr>
+                </table>
+              </form>
+            </div>
+        </div>
+        <% include partials/footer.ejs %>
+        <script>changeHeader("<%- SessionExists %>","<%- user %>");fillConnectionInfo("<%- connectionInfo.connTopic %>", "<%- connectionInfo.connTime %>", "<%- connectionInfo.connDetails %>");</script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<div class='row indexHeader'>
+    <div class='col-sm-12'>
+        <div class='row'>
+            <div class='col-sm-1'>
+                <a href='/index'><img class='imgLogo' src='/assets/images/chat.png' alt="logo"></a>
+            </div>
+            <div class='col-sm-5'>
+                <h3 class='indexHeaderText'>What's Happening!!</h3>
+            </div>
+            <div class='col-sm-5 headerMenuTile'>
+                <form id="newConnForm" method="POST" action="/signin?action=newConnection">
+                  <div class='headerMenu startCon' onclick="document.getElementById('newConnForm').submit();">
+                      <div>
+                          &nbsp;&nbsp;<img class='headerMenuImg' src='/assets/images/hands.png' alt='start a connection'>Start a New Connection
+                      </div>
+                  </div>
+                </form>
+                <form id="loginForm" method="POST" action="/signin?action=login" >
+                  <div id='login' class='headerMenu Login'  onclick="document.getElementById('loginForm').submit();">
+                      <div>
+                          &nbsp;<img class='headerMenuImg' src='/assets/images/login.png' alt="login">Login
+                      </div>
+                  </div>
+                </form>
+                <form id="SignUpForm" method="get" action="/signUpNewUser" >
+                  <div id='signUp' class='headerMenu SignUp'   onclick="document.getElementById('SignUpForm').submit();">
+                      <div>
+                          &nbsp;&nbsp;<img class='headerMenuImg' src='/assets/images/sign-up.png' alt="sign up">Sign up
+                      </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

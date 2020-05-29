@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/signUp.css">
+    <script type="text/javascript" src="/assets/scripts/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-md-12" >
+                <% include partials/header.ejs %>
+                <% include partials/navigation.ejs %>
+            </div>
+        </div>
+        <div class="row indexContent">
+            <div class="col-sm-12">
+                <br>
+                  <h4>Sign Up!</h4>
+                  <form action="/signUp?action=signup" method="POST">
+                    <%if(authError !== '' && authError.length >0){%>
+                      <p class="error"><%= authError %></p>
+                    <% }%>
+                    <table class="contentTable">
+                      <tr>
+                        <td>Firstname: &nbsp;&nbsp;</td>
+                        <td>
+                          <input type="text" name="firstname" id="firstname" class="txtInput">
+                        </td>
+                        <%if(errors.firstname){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.firstname.msg %></td>
+                        <% }%>
+                      </tr>
+                      <tr>
+                        <td>Lastname: &nbsp;&nbsp;</td>
+                        <td>
+                          <input type="text" name="lastname" id="lastname" class="txtInput">
+                        </td>
+                        <%if(errors.lastname){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.lastname.msg %></td>
+                        <% }%>
+                      </tr>
+                      <tr>
+                        <td>Email Id: &nbsp;&nbsp;</td>
+                        <td>
+                          <input type="text" name="email" id="email" class="txtInput">
+                        </td>
+                        <%if(errors.email){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.email.msg %></td>
+                        <% }%>
+                      </tr>
+                      <tr>
+                        <td>Address 1: &nbsp;&nbsp;</td>
+                        <td>
+                          <input type="text" name="add1" id="add1" class="txtInput">
+                        </td>
+                        <%if(errors.add1){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.add1.msg %></td>
+                        <% }%>
+                      </tr>
+                      <tr>
+                        <td>Address 2: &nbsp;&nbsp;</td>
+                        <td>
+                          <input type="text" name="add2" id="add2" class="txtInput">
+                        </td>
+                        <%if(errors.add2){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.add2.msg %></td>
+                        <% }%>
+                      </tr>
+                      <tr>
+                        <td>City: &nbsp;&nbsp;</td>
+                        <td>
+                          <input type="text" name="city" id="city" class="txtInput">
+                        </td>
+                        <%if(errors.city){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.city.msg %></td>
+                        <% }%>
+                      </tr>
+                      <tr>
+                        <td>State: &nbsp;&nbsp;</td>
+                        <td>
+                          <input type="text" name="state" id="state" class="txtInput">
+                        </td>
+                        <%if(errors.state){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.state.msg %></td>
+                        <% }%>
+                      </tr>
+                      <tr>
+                        <td>Country: &nbsp;&nbsp;</td>
+                        <td>
+                          <input type="text" name="country" id="country" class="txtInput">
+                        </td>
+                        <%if(errors.country){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.country.msg %></td>
+                        <% }%>
+                      </tr>
+                      <tr>
+                        <td>Zip Code: &nbsp;&nbsp;</td>
+                        <td>
+                          <input type="text" name="zipCode" id="zipCode" class="txtInput">
+                        </td>
+                        <%if(errors.zipCode){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.zipCode.msg %></td>
+                        <% }%>
+                      </tr>
+                      <tr>
+                        <td>Username: &nbsp;&nbsp;</td>
+                        <td>
+                          <input type="text" name="username" id="username" class="txtInput" placeholder="(Example: johnL123, SiyaB465, etc.)">
+                        </td>
+                        <%if(errors.username){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.username.msg %></td>
+                        <% }%>
+                      </tr>
+                      <tr>
+                        <td>Password: &nbsp;&nbsp;</td>
+                        <td>
+                          <input type="password" name="password" id="password" class="txtInput">
+                        </td>
+                        <%if(errors.password){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.password.msg %></td>
+                        <% }%>
+                      </tr>
+                      <tr>
+                        <td>Confirm Password: &nbsp;&nbsp;</td>
+                        <td>
+                          <input type="password" name="confPassword" id="confPassword" class="txtInput">
+                        </td>
+                        <%if(errors.confPassword){%>
+                          <td class="error">&nbsp;&nbsp;<%= errors.confPassword.msg %></td>
+                        <% }%>
+                      </tr>
+                      <tr>
+                        <td colspan="2">
+                          <br>
+                          <input type="submit" name="signUp" value="Sign Up" class="createConBtn">
+                        </td>
+                      </tr>
+                    </table>
+                  </form>
+            </div>
+        </div>
+        <% include partials/footer.ejs %>
+    </body>
+</html>

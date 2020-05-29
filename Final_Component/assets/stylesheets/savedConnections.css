@@ -1,0 +1,49 @@
+.savedConnRow{
+  height: 550px;
+  overflow: auto !important;
+}
+
+.smallEventImg{
+    width:40px;
+    height:40px;
+}
+
+.eventsSummaryTable, .eventsSummaryTable td, .eventsSummaryTable th{
+    border:1px solid #737373;
+}
+
+.eventsSummaryTable td, .eventsSummaryTable th{
+    padding:6px 12px 6px 12px;
+    background-color:#404040;
+    color:#cccccc;
+}
+
+.eventsSummaryTable th{
+    background-color:#4d4d4d;
+}
+
+.eventTbl, .eventTbl td{
+    border:none;
+}
+
+.decisionBtn{
+    width:90px;
+    margin-right:16px;
+}
+
+.updateBtn{
+    background-color:#3366cc;
+}
+
+.deleteBtn{
+    background-color:#992600;
+}
+
+.savedConTbl{
+margin-left:100px;
+}
+
+.LoggedInUser{
+    display:inline;
+    cursor:none !important;
+}

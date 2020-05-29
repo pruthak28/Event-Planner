@@ -1,0 +1,70 @@
+.eventHeader{
+    margin-left:100px;
+}
+
+.oneLiner{
+    font-size:16px;
+    margin-left:100px;
+}
+
+table{
+margin-left:60px;
+}
+
+table td{
+    padding:6px;
+}
+
+.contactHeader{
+    font-size:16px;
+    font-weight:bold;
+}
+
+.eventImg{
+    width:50px;
+    height:50px;
+}
+
+.contactTxt{
+    font-weight:normal;
+}
+
+.queryTxt{
+    margin-left:10px;
+    margin-top:16px;
+}
+
+.queryImg, .queryTxt{
+    float:left;
+}
+
+.submitBtn{
+  width:180px;
+  height:34px;
+  background:#4d4d4d;
+  border:none;
+  color: #f2f2f2;
+  -webkit-box-shadow: 3px 3px 5px 6px #1a1a1a;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    3px 3px 5px 6px #1a1a1a;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         3px 3px 5px 6px #1a1a1a;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  text-align:center;
+  border-radius:10px;
+  padding:4px;
+  cursor:pointer;
+}
+
+.txtArea{
+    border-radius:10px;
+    -webkit-box-shadow: 3px 3px 5px 6px #1a1a1a;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    3px 3px 5px 6px #1a1a1a;  /* Firefox 3.5 - 3.6 */
+    box-shadow:         3px 3px 5px 6px #1a1a1a;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.indexContent{
+  height: 560px;
+  overflow: auto !important;
+}
+
+.greenMsg{
+  color: green;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Connections</title>
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/index.css">
+    <link rel="stylesheet" href="/assets/stylesheets/connections.css">
+    <script type="text/javascript" src="/assets/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/commonHeader.js"></script>
+    </head>
+    <body>
+
+        <div class="row">
+            <div class="col-md-12">
+                <% include partials/header.ejs %>
+                <% include partials/navigation.ejs %>
+            </div>
+        </div>
+        <div class="row indexContent">
+            <div class="col-sm-12">
+                <br><br><br>
+                <%if(categories.length > 0){%>
+                <% for(var i =0; i<categories.length;i++) {%>
+                    <table class="event">
+                         <tr>
+                            <td>
+                                <img class="eventImg" src="/assets/images/<%= categories[i].substr(0,3) %>.png" alt="<%= categories[i] %>">
+                            <td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td class="eventHeader">
+                                            <%= categories[i] %>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul>
+                                                <% connections.forEach(function(item){ %>
+                                                    <% if(item.connTopic === categories[i]) {%>
+                                                        <li><a href="/connection?connectionId=<%= item.connId %>"><%= item.connName %></a></li>
+                                                    <% } %>
+                                                <% }); %>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                         </tr>
+                     </table>
+                     <script>changeHeader("<%- SessionExists %>","<%- user %>");</script>
+                <% } %>
+                <% } %>
+            </div>
+        </div>
+        <% include partials/footer.ejs %>
+
+    </body>
+</html>

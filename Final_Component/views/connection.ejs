@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Connection</title>
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/index.css">
+    <link rel="stylesheet" href="/assets/stylesheets/connection.css">
+    <script type="text/javascript" src="/assets/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/commonHeader.js"></script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-md-12">
+                <% include partials/header.ejs %>
+                <% include partials/navigation.ejs %>
+            </div>
+        </div>
+        <div class="row indexContent">
+            <div class="col-sm-12">
+                <br><br><br>
+                <table class="eventConnection">
+                    <tr>
+                        <td>
+                            <table class="wholeConnectionDiv">
+                                <tr>
+                                    <td class="eventHeader">
+                                        <br>
+                                        <%= connection.connName %>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="innerConnectionTbl">
+                                            <tr>
+                                                <td>
+                                                    <br>
+                                                    <% if(parseInt(connection.connId.match(/(\d+)/)) <= 8) {%>
+                                                      <img class="connectionImg" src="/assets/images/<%= connection.connId %>.png" alt="<%= connection.connId %>">
+                                                    <% } else {%>
+                                                      <img class="connectionImg" src="/assets/images/default.png" alt="<%= connection.connId %>">
+                                                    <% } %>
+                                                </td>
+                                                <td>
+                                                    <ul>
+                                                        <li>Hosted by <%= connection.Host %></li>
+                                                        <li><%= connection.connTime.substr(0,connection.connTime.indexOf("|")) %></li>
+                                                        <li><%= connection.connTime.substr(connection.connTime.indexOf("|")+1, connection.connTime.length) %></li>
+                                                        <li><%= connection.location %></li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="eventHeader">
+                                        <br>
+                                        Details
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <%= connection.connDetails %>
+                                        <br>
+                                        <br>
+                                        <br>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                          <form id="RSVPForm" method="POST" action="#">
+                            <table class="decisionDiv">
+                                <tr>
+                                    <td>Are you going? 3 people are going<br><input type="hidden" name="viewConnections" value="<%= connection.connId %>"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="decisionBtn yesBtn" onclick="document.getElementById('RSVPForm').setAttribute('action','/savedConnections?action=<%= (action===undefined || action==='')?'save':'updateProfile' %>&connection=<%= JSON.stringify(connection) %>&rsvp=Yes&viewConnections=<%= connection.connId %>');document.getElementById('RSVPForm').submit();">Yes</div>
+                                        <div class="decisionBtn noBtn" onclick="document.getElementById('RSVPForm').setAttribute('action','/savedConnections?action=<%= (action===undefined || action==='')?'save':'updateProfile' %>&connection=<%= JSON.stringify(connection) %>&rsvp=No&viewConnections=<%= connection.connId %>');document.getElementById('RSVPForm').submit();">No</div>
+                                        <div class="decisionBtn maybeBtn" onclick="document.getElementById('RSVPForm').setAttribute('action','/savedConnections?action=<%= (action===undefined || action==='')?'save':'updateProfile' %>&connection=<%= JSON.stringify(connection) %>&rsvp=Maybe&viewConnections=<%= connection.connId %>');document.getElementById('RSVPForm').submit();">Maybe</div>
+                                    </td>
+                                </tr>
+                                <tr><td></td></tr>
+                                <tr><td></td></tr>
+                                <tr><td></td></tr>
+                            </table>
+                          </form>
+                          <% if(showConnUpdate){ %>
+                            <br>
+                            <form id="updateDeleteConn" action="#" method="POST">
+                              <table>
+                                <tr>
+                                  <td>Connection Setting: </td>
+                                </tr>
+                                <tr>
+                                  <td>
+                                    <div class="decisionBtn updateBtn" onclick="document.getElementById('updateDeleteConn').setAttribute('action','/newConnection?action=updateConnection&connection=<%= JSON.stringify(connection) %>');document.getElementById('updateDeleteConn').submit();">Update</div>
+                                    <div class="decisionBtn deleteBtn"  onclick="if(confirm('This will delete connection data for all users.\nDo you really want to delete the connection?')){document.getElementById('updateDeleteConn').setAttribute('action','/connections?action=deleteConnection&connectionId=<%= connection.connId %>');document.getElementById('updateDeleteConn').submit();}">Delete</div>
+                                  </td>
+                                </tr>
+                              </table>
+                            </form>
+                          <% } %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <% include partials/footer.ejs %>
+        <script>changeHeader("<%- SessionExists %>","<%- user %>");</script>
+    </body>
+</html>

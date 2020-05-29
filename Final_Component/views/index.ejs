@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/index.css">
+    <script type="text/javascript" src="/assets/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/commonHeader.js"></script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-md-12" >
+                <% include partials/header.ejs %>
+                <% include partials/navigation.ejs %>
+            </div>
+        </div>
+        <div class="row indexContent">
+            <div class="col-sm-12">
+                <br><br><br>
+                <div class="appDesc">
+                    <p>What's Happening is an event publicizing platform which helps people search for the various events
+                        happening around them. Our platform also allows user to create an event so that they can share their
+                        experiences with many people who are always willing to learn something out of the box.</p>
+                    <p>
+                        The platform can be used mainly for two broad category of events registration. Depending on the interests people
+                        can choose from the list of events that are available. First category is focused on recreational events
+                        like events related to fun activities which acts as a stress buster for the people those who always have a busy schedule
+                        and the other one is based on technology events which can be a workshop or a tech talk type of a session.
+                    </p>
+                    <p>
+                        We also provide additional feature which is to provide reminders to the people for the events that they have decided to attend.
+                        The platform is always evolving and we are trying our best to make it more and more user friendly. So, feel free to provide any suggestions.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <% include partials/footer.ejs %>
+        <script>changeHeader("<%- SessionExists %>","<%- user %>");</script>
+    </body>
+</html>

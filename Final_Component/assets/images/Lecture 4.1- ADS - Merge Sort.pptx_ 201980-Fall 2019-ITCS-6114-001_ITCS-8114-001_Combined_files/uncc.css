@@ -1,0 +1,24 @@
+.replies {  
+	padding-left: 7px;  
+	border-left: solid #f2f2f2 16px;  
+}  
+  
+.discussion-read-state-btn {  
+	top: 32px;  
+}  
+  
+div.entry-content {  
+	padding-left:0px !important;  
+}
+
+label[for="assignment_turnitin_enabled"] {
+	display: none;
+}
+
+a.default_link.no-hover {
+	display: none !important;
+}
+
+tr.channel.pseudonym_ {
+	height: 37px;
+}

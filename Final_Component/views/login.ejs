@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/login.css">
+    <script type="text/javascript" src="/assets/scripts/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-md-12" >
+                <% include partials/header.ejs %>
+                <% include partials/navigation.ejs %>
+            </div>
+        </div>
+        <div class="row indexContent">
+            <div class="col-sm-12">
+                <br><br><br>
+                <div class="appDesc">
+                  <h4>Welcome to What's happening!</h4>
+                  <br>
+                  <% if(error !== '' && error.length >0){ %>
+                    <p class="error"><%= error%></p>
+                  <% } else { %>
+                    <% if(errors === undefined || errors === null || errors.length<=0) {%>
+                      <p>Please enter your username and password to login</p>
+                    <%} else {%>
+                      <%if(errors.username){ %>
+                        <p class="error"><%= errors.username.msg %></p>
+                      <%}%>
+                      <%if(errors.password){%>
+                        <p class="error"><%= errors.password.msg %></p>
+                      <% }%>
+                    <% } %>
+                  <% } %>
+
+                  <form action="/login?action=<%= ((action=='newConnection' || action=='newConn')?'newConn':'signin') %>" method="POST">
+                    <table>
+                      <tr>
+                        <td>Username: &nbsp;&nbsp;</td>
+                        <td>
+                          <input type="text" name="username" id="username" class="txtInput">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2">
+                          <br>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Password: &nbsp;&nbsp;</td>
+                        <td>
+                          <input type="password" name="password" id="password" class="txtInput">
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2">
+                          <br>
+                          <input type="submit" name="login" value="Login" class="createConBtn">
+                        </td>
+                      </tr>
+                    </table>
+                  </form>
+                </div>
+            </div>
+        </div>
+        <% include partials/footer.ejs %>
+    </body>
+</html>

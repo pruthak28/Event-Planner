@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Saved Connections</title>
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/index.css">
+    <link rel="stylesheet" href="/assets/stylesheets/savedConnections.css">
+    <script type="text/javascript" src="/assets/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/commonHeader.js"></script>
+    </head>
+    <body>
+
+        <div class="row">
+            <div class="col-md-12">
+                <% include partials/header.ejs %>
+                <% include partials/navigation.ejs %>
+            </div>
+        </div>
+        <div class="row indexContent savedConnRow">
+            <div class="col-sm-12">
+                <table class="savedConTbl">
+                    <tr>
+                        <td class="eventHeader"><br>
+                        <br><%= user %>'s Connections<br><br></td>
+                    </tr>
+                    <tr>
+                        <td>
+                          <form id="saveConn" method="POST" action="#">
+                            <table class="eventsSummaryTable">
+                                <tr>
+                                    <th>Connection</th>
+                                    <th>Category</th>
+                                    <th>Going?</th>
+                                    <th></th>
+                                </tr>
+                                <% if(userConn.length >0) {%>
+                                  <% for(var i =0; i<userConn.length;i++) {%>
+                                    <tr>
+                                        <td>
+                                            <table class="eventTbl">
+                                                <tr>
+                                                    <td>
+                                                      <% if(parseInt(userConn[i].connection.connId.match(/(\d+)/)) <= 8) {%>
+                                                        <img class="smallEventImg" src="/assets/images/<%= userConn[i].connection.connId %>.png" alt="<%= userConn[i].connection.connId %>">
+                                                      <% } else {%>
+                                                        <img class="smallEventImg" src="/assets/images/default.png" alt="<%= userConn[i].connection.connId %>">
+                                                      <% } %>
+
+
+                                                    </td>
+                                                    <td>
+                                                       <input type="hidden" name="viewConnections" value="<%= userConn[i].connection.connId %>">
+                                                        <%= userConn[i].connection.connName %>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </td>
+                                        <td><%= userConn[i].connection.connTopic %></td>
+                                        <td><%= userConn[i].rsvp %></td>
+                                        <td>
+                                              <div class="decisionBtn updateBtn" onclick="document.getElementById('saveConn').setAttribute('action','/connection?action=updateRSVP&connectionId=<%= userConn[i].connection.connId %>');document.getElementById('saveConn').submit();">Update</div>
+                                              <div class="decisionBtn deleteBtn"  onclick="document.getElementById('saveConn').setAttribute('action','/savedConnections?action=delete&connection=<%= JSON.stringify(userConn[i].connection) %>');document.getElementById('saveConn').submit();">Delete</div>
+                                        </td>
+                                    </tr>
+                                  <% } %>
+                                <% } else { %>
+                                  <tr>
+                                      <td colspan="4">
+                                        No connection(s) to display.
+                                      </td>
+                                  </tr>
+                                <% } %>
+                            </table>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <% include partials/footer.ejs %>
+
+        <script>changeHeader("<%- SessionExists %>","<%- user %>");</script>
+    </body>
+</html>

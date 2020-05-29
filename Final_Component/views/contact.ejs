@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/index.css">
+    <link rel="stylesheet" href="/assets/stylesheets/contact.css">
+    <script type="text/javascript" src="/assets/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/commonHeader.js"></script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-md-12" >
+                <% include partials/header.ejs %>
+                <% include partials/navigation.ejs %>
+            </div>
+        </div>
+        <div class="row indexContent">
+            <div class="col-sm-12">
+                <br><br>
+                <h3 class="eventHeader">Contact Us</h3>
+                <p class="oneLiner">We are here to help.</p>
+                <table>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <img class="eventImg" src="/assets/images/call.png" alt="call">
+                                    </td>
+                                    <td>
+                                        <h6 class="contactHeader">Call Now</h6>
+                                        <h6 class="contactTxt">111-111-1111</h6>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <img class="eventImg" src="/assets/images/email.png" alt="email">
+                                    </td>
+                                    <td>
+                                        <h6 class="contactHeader">Email Us</h6>
+                                        <h6 class="contactTxt">abcd.efgh123@gmail.com</h6>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <img class="eventImg queryImg" src="/assets/images/query.png" alt="email">
+                                        <h6 class="contactHeader queryTxt">Query?</h6>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <textarea rows="4" cols="50" class="txtArea"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                      <form action="/contact" method="POST">
+                                        <input class="submitBtn" type="submit" name="submitBtn" value="submit">
+                                      </form>
+                                      <% if(msg) {%>
+                                        <br>
+                                        <p class="greenMsg"><%= msg %></p>
+                                      <% } %>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <% include partials/footer.ejs %>
+        <script>changeHeader("<%- SessionExists %>","<%- user %>");</script>
+    </body>
+</html>

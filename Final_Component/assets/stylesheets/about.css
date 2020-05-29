@@ -1,0 +1,42 @@
+.ui-state-active .ui-icon, .ui-button:active .ui-icon {
+    background-image: url(/assets/images/ui-icons_ffffff_256x240.png);
+}
+
+.eventHeader{
+    margin-left:100px;
+}
+
+#accordion{
+    margin-left:100px;
+    width:1000px;
+    font-family:verdana !important;
+}
+
+.accHeader{
+    background:#4d4d4d;
+    border:1px solid #737373;
+    color:#cccccc;
+}
+
+.ui-icon, .ui-widget-content .ui-icon {
+    background-image: url(/assets/images/ui-icons_ffffff_256x240.png);
+}
+
+.accText{
+    background:#404040;
+    color:#cccccc;
+    border:1px solid #737373;
+}
+
+disabled:hover, html .ui-button.ui-state-disabled:active {
+    color:#a6a6a6;
+}
+
+h6{
+    font-weight:normal !important;
+}
+
+.indexContent{
+  height: 550px;
+  overflow: auto !important;
+}
